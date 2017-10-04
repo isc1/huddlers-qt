@@ -24,7 +24,7 @@ public:
     void setLastPosY(qreal y);
     void setWidth(qreal w);
     void setHeight(qreal h);
-    void setsize(qreal size);
+    void setSize(qreal s);
     void setoutlinecolor(QColor linecolor);
     void setoutlinewidth(int linewidth);
     void setfillcolor(QColor fillcolor);

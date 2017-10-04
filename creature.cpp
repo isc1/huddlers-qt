@@ -214,6 +214,18 @@ qreal Creature::getHeight()
     return mHeight;
 }
 
+void Creature::setSize(qreal s)
+{
+    if(mCreatureGraphicsObject != NULL)
+    {
+        mSize = s;
+    }
+    else
+    {
+        qDebug() << __FUNCTION__ << ":" << "Creature graphics object is NULL!";
+    }
+}
+
 qreal Creature::getSize()
 {
     return mSize;

@@ -92,7 +92,7 @@ void MainWindow::setupGame()
     mPrimeCreature->setGraphicsObject(new QGraphicsEllipseItem(0,0,10,10));
     mPrimeCreature->setPosX(10);
     mPrimeCreature->setPosY(10);
-    mPrimeCreature->setSpeed(((qrand()%10)/50.0)+0.1);
+    mPrimeCreature->setSpeed(0.25);
     mPrimeCreature->setOriginalSpeed(mPrimeCreature->getSpeed());
     mPrimeCreature->setfillcolor(QColor(255,0,0));
     mGraphicsScene->addItem(mPrimeCreature->getGraphicsObject());
@@ -108,11 +108,13 @@ void MainWindow::setupGame()
         int x = (qrand()%mWindowWidth)*0.9;
         int y = (qrand()%mWindowHeight)*0.9;
 
-        mycreature->setGraphicsObject(new QGraphicsEllipseItem(0,0,10,10));
+        qreal mysize = 6.0 + qrand()%15;
+        mycreature->setSize(mysize);
+        mycreature->setGraphicsObject(new QGraphicsEllipseItem(0,0,mysize,mysize));
         mycreature->setPosX(x);
         mycreature->setPosY(y);
-        qreal minRandomSpeed = ((qrand()%10)/100.0) + 0.02;
-        mycreature->setSpeed(((qrand()%10)/30.0) + minRandomSpeed);
+        qreal minRandomSpeed = ((qrand()%10)/1000.0) + 0.02;
+        mycreature->setSpeed(((qrand()%10)/100.0) + minRandomSpeed);
         mycreature->setOriginalSpeed(mycreature->getSpeed());
 
         //mycreature->setPen(pen);

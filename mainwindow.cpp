@@ -135,7 +135,7 @@ void MainWindow::setupGame()
     mCreatures.at(1)->setfillcolor(Qt::blue);
     mCreatures.at(2)->setoutlinewidth(3);
 
-    qDebug() << "huddlers-qt " << __FUNCTION__ << "*** ENDED ***";
+    //qDebug() << "huddlers-qt " << __FUNCTION__ << "*** ENDED ***";
 }
 
 void MainWindow::startAnimationTimer()

@@ -107,10 +107,9 @@ void MainWindow::setupGame()
         Creature *mycreature = new Creature();
         int x = (qrand()%mWindowWidth)*0.9;
         int y = (qrand()%mWindowHeight)*0.9;
-
-        qreal mysize = 6.0 + qrand()%15;
-        mycreature->setSize(mysize);
+        qreal mysize = 6.0 + qrand()%10;
         mycreature->setGraphicsObject(new QGraphicsEllipseItem(0,0,mysize,mysize));
+        mycreature->setSize(mysize);
         mycreature->setPosX(x);
         mycreature->setPosY(y);
         qreal minRandomSpeed = ((qrand()%10)/1000.0) + 0.02;
@@ -135,6 +134,8 @@ void MainWindow::setupGame()
     mCreatures.at(0)->setoutlinecolor(Qt::green);
     mCreatures.at(1)->setfillcolor(Qt::blue);
     mCreatures.at(2)->setoutlinewidth(3);
+
+    qDebug() << "huddlers-qt " << __FUNCTION__ << "*** ENDED ***";
 }
 
 void MainWindow::startAnimationTimer()
@@ -174,7 +175,7 @@ void MainWindow::animationTick()
         qreal targetY = mCreatures.at(i)->getTarget1()->getPosY();
         qreal mySpeed = mCreatures.at(i)->getSpeed();
 
-        if (mCreatures.at(i)->distanceTo(tpf) > mCreatures.at(i)->getTarget1()->getSize())
+        if (mCreatures.at(i)->distanceTo(tpf) > mCreatures.at(i)->getTarget1()->getSize()*10.0)
         {
             if (targetX > myX)
                 mCreatures.at(i)->setPosX(myX + mySpeed);
